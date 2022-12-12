@@ -4,8 +4,15 @@ import PropTypes from 'prop-types';
 function TodoItem( {todo, index} ) {
     return (
         <li>
-            <strong>{index + 1}</strong>
-            {todo.title}
+            <span>
+                <input type="checkbox"/>
+                <strong>{index + 1}</strong>
+                &nbsp;
+                {todo.title}
+            </span>
+           
+
+           <button className='rm'>&times;</button>
         </li>
     )
 }
