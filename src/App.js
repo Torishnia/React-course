@@ -3,6 +3,7 @@ import TodoList from './Todo/TodoList';
 import Context from './context';
 import AddTodo from './Todo/AddTodo';
 import Loader from './Loader';
+import Modal from './Modal/Modal';
 
 function App() {
   const [todos, setTodos] = React.useState([
@@ -52,15 +53,17 @@ useEffect(() => {
   return (
     <Context.Provider value={{ removeTodo }}>
       <div className="wrapper">
-      <h1>React tutorial</h1>
-      <AddTodo onCreate={addTodo}/>
-      {loading && <Loader/>}
-      {todos.length ? (
-      <TodoList todos={todos} onToggle={toggleTodo}/>
-      ) : loading ? null : (
-      <p>No todos!</p> 
-      )}  
-   </div>
+        <h1>React tutorial</h1>
+        <Modal/>
+        <AddTodo onCreate={addTodo}/>
+        
+        {loading && <Loader/>}
+        {todos.length ? (
+        <TodoList todos={todos} onToggle={toggleTodo}/>
+        ) : loading ? null : (
+        <p>No todos!</p> 
+        )}  
+      </div>
     </Context.Provider>
   );
 }
